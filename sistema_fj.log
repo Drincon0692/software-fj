@@ -1,0 +1,38 @@
+[2026-05-13 00:43:35] [INFO] ═══ Inicio de demostración del sistema Software FJ ═══
+[2026-05-13 00:43:35] [INFO] Cliente creado: ana.garcia@empresa.co (ID=BB4AFC67)
+[2026-05-13 00:43:35] [INFO] Cliente registrado en repositorio: ana.garcia@empresa.co
+[2026-05-13 00:43:35] [INFO] Cliente creado: luis.martinez@gmail.com (ID=831ACB69)
+[2026-05-13 00:43:35] [INFO] Cliente registrado en repositorio: luis.martinez@gmail.com
+[2026-05-13 00:43:35] [INFO] Cliente creado: carla.rojas@consulting.co (ID=1C41089A)
+[2026-05-13 00:43:35] [INFO] Cliente registrado en repositorio: carla.rojas@consulting.co
+[2026-05-13 00:43:35] [INFO] Cliente creado: ana.garcia@empresa.co (ID=47D36C46)
+[2026-05-13 00:43:35] [ADVERTENCIA] Intento de registro duplicado: ana.garcia@empresa.co
+[2026-05-13 00:43:35] [INFO] Reserva creada: ID=92A23435 | Cliente=ana.garcia@empresa.co | Servicio=Sala Innovación A | Horas=3.0
+[2026-05-13 00:43:35] [INFO] Reserva confirmada: 92A23435 | Total: $578,340.00
+[2026-05-13 00:43:35] [INFO] Reserva creada: ID=F8E1E1CC | Cliente=luis.martinez@gmail.com | Servicio=Sala Innovación A | Horas=2.0
+[2026-05-13 00:43:35] [ERROR] Error al confirmar reserva F8E1E1CC: [ERR_CALCULO_COSTO] Error al calcular el costo del servicio: [ERR_CAPACIDAD] La capacidad solicitada (17) excede el máximo permitido (12).
+    TRACEBACK: Traceback (most recent call last):
+  File "/home/claude/sistema_fj/servicios.py", line 112, in calcular_costo_con_impuesto
+    subtotal    = self.calcular_costo(horas, **kwargs)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/claude/sistema_fj/servicios.py", line 193, in calcular_costo
+    raise CapacidadExcedidaError(self._capacidad_max, personas)
+excepciones.CapacidadExcedidaError: [ERR_CAPACIDAD] La capacidad solicitada (17) excede el máximo permitido (12).
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/claude/sistema_fj/reservas.py", line 117, in confirmar
+    desglose = self._servicio.calcular_costo_con_impuesto(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/claude/sistema_fj/servicios.py", line 129, in calcular_costo_con_impuesto
+    raise CalculoCostoError(str(exc)) from exc
+excepciones.CalculoCostoError: [ERR_CALCULO_COSTO] Error al calcular el costo del servicio: [ERR_CAPACIDAD] La capacidad solicitada (17) excede el máximo permitido (12).
+[2026-05-13 00:43:35] [INFO] Reserva creada: ID=CE153463 | Cliente=luis.martinez@gmail.com | Servicio=Laptop HP ProBook | Horas=4.0
+[2026-05-13 00:43:35] [INFO] Reserva confirmada: CE153463 | Total: $1,098,846.00
+[2026-05-13 00:43:35] [ADVERTENCIA] Cancelación de reserva ya confirmada: CE153463 | Motivo: Cliente cambió de plan
+[2026-05-13 00:43:35] [INFO] Reserva cancelada: CE153463 | Motivo: Cliente cambió de plan
+[2026-05-13 00:43:35] [ADVERTENCIA] Intento inválido de confirmar reserva CE153463: ya en estado PENDIENTE
+[2026-05-13 00:43:35] [INFO] Reserva creada: ID=D92BA195 | Cliente=carla.rojas@consulting.co | Servicio=Asesoría Cloud Computing | Horas=2.0
+[2026-05-13 00:43:35] [INFO] Reserva confirmada: D92BA195 | Total: $3,236,800.00
+[2026-05-13 00:43:35] [INFO] ═══ Fin de demostración del sistema Software FJ ═══
